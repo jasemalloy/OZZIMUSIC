@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OZZI MUSIC — Teleprompter</title>
+
+  <style>
+    :root{
+      /* ---- tune these only if needed ---- */
+      --loop: 2.5s;               /* PERFECT LOOP DURATION */
+      --text-color: #eeeeee;      /* scrolling text color (white). Use #C7B1FF for lavender */
+      --gap: 2.75rem;             /* space between repeated phrases */
+      --edgefade: 14%;            /* fade width at left/right edges */
+
+      /* mask insets so the text sits INSIDE the billboard face
+         tweak these four percentages if alignment needs micro-adjustment
+         (top, right, bottom, left) */
+      --face-inset: 6% 6.5% 27% 5.5%;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:#0f0f0f;color:#fff}
+
+    .page{min-height:100%;display:grid;place-items:center;padding:clamp(8px,2vw,20px)}
+
+    /* --- BILLBOARD STAGE --- */
+    .stage{position:relative;width:min(92vw,1200px);aspect-ratio:4/2.35;overflow:hidden;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.55);}
+
+    /* B/W sky variation behind photo for depth in case photo edges show */
+    .stage::before{
+      content:"";position:absolute;inset:0;z-index:0;
+      background:
+        radial-gradient(120% 100% at 50% 0%, rgba(255,255,255,.10), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg,#3b3b3b 0%,#232323 55%,#111 100%);
+    }
+
+    .billboard-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;filter:grayscale(100%) contrast(1.05) brightness(.96);}
+
+    /* Click-through area to shows (can change href below) */
+    .hotspot{position:absolute;inset:var(--face-inset);z-index:30}
+    .hotspot a{position:absolute;inset:0;display:block;text-indent:-9999px}
+
+    /* Text mask clipped to billboard face with edge fade */
+    .mask{position:absolute;inset:var(--face-inset);z-index:20;overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) var(--edgefade), rgba(0,0,0,1) calc(100% - var(--edgefade)), rgba(0,0,0,0) 100%);
+              mask-image:linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,1) var(--edgefade), rgba(0,0,0,1) calc(100% - var(--edgefade)), rgba(0,0,0,0) 100%);
+    }
+
+    /* BELTS (two directions). Each belt contains TWO identical inner rows so the
+       animation from 0% -> -100% makes a perfect loop with no jump. */
+    .belt{position:absolute;left:0;top:50%;transform:translateY(-50%);width:100%;}
+    .belt__inner{display:flex;gap:var(--gap);padding-inline:var(--gap);flex:0 0 auto;min-width:100%;}
+
+    .belt__inner span{font: 700 clamp(40px,10vw,140px)/1.05 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; letter-spacing:.02em; color:var(--text-color); text-transform:uppercase; text-shadow:0 2px 6px rgba(0,0,0,.35)}
+
+    /* LEFT-moving belt */
+    .belt--left .belt__inner{animation:scroll-left var(--loop) linear infinite;}
+    @keyframes scroll-left{to{transform:translateX(-100%)}}
+
+    /* RIGHT-moving belt */
+    .belt--right{opacity:.9}
+    .belt--right .belt__inner{animation:scroll-right var(--loop) linear infinite;}
+    @keyframes scroll-right{from{transform:translateX(-100%)} to{transform:translateX(0)}}
+
+    /* Respect reduced-motion */
+    @media (prefers-reduced-motion: reduce){.belt__inner{animation-duration:0.001ms;animation-iteration-count:1}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="stage" aria-label="OZZI billboard with teleprompter text">
+      <!-- Use your provided cleaned image -->
+      <img class="billboard-img" src="/assets/billboard-clean.jpg" alt="Blank black-and-white billboard" />
+
+      <!-- Masked scrolling text inside billboard face -->
+      <div class="mask" aria-hidden="true">
+        <!-- Left-moving layer -->
+        <div class="belt belt--left">
+          <div class="belt__inner">
+            <span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span>
+          </div>
+          <div class="belt__inner" aria-hidden="true">
+            <span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span>
+          </div>
+        </div>
+        <!-- Right-moving layer -->
+        <div class="belt belt--right">
+          <div class="belt__inner">
+            <span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span>
+          </div>
+          <div class="belt__inner" aria-hidden="true">
+            <span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span><span>OZZI MUSIC</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Click-through area (update href when you have /shows ready) -->
+      <div class="hotspot"><a href="/shows" aria-label="See upcoming performances">Upcoming performances</a></div>
+    </section>
+  </main>
+</body>
+</html>
