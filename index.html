@@ -1,34 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Turntable — Wireframe</title>
-<style>
-  :root{
-    --bg:#0b1320;
-    --wire:#6ee7ff;          /* primary line color */
-    --wire2:#a6ffb5;         /* accent line color */
-    --ghost:#32506a;         /* subtle guides */
-    --stroke:2.5;            /* master stroke width */
-  }
-  html,body{height:100%;margin:0;background:var(--bg);}
-  .wrap{display:grid;place-items:center;min-height:100%;padding:4vmin;}
-  svg{width:min(94vmin,1200px);height:auto;display:block}
-  text{font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial; fill:var(--wire); opacity:.9; letter-spacing:.4px}
-  .wf{fill:none;stroke:var(--wire);stroke-width:var(--stroke);vector-effect:non-scaling-stroke}
-  .wf2{fill:none;stroke:var(--wire2);stroke-width:var(--stroke);vector-effect:non-scaling-stroke}
-  .ghost{fill:none;stroke:var(--ghost);stroke-width:1.6;stroke-dasharray:7 6;opacity:.6;vector-effect:non-scaling-stroke}
-  .thin{stroke-width:1.6}
-  .fat{stroke-width:4}
-  .dash{stroke-dasharray:3 7}
-  .label{font-size:12px;opacity:.85}
-  .spin path[data-rot]{transform-origin: 520px 460px; animation: spin 12s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-</style>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OZZI MUSIC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
       margin: 0;
@@ -40,166 +14,13 @@
     }
     img {
       max-width: 90vw;
+      max-height: 90vh;
       height: auto;
       display: block;
     }
   </style>
 </head>
 <body>
-<div class="wrap">
-<svg viewBox="0 0 1200 900" aria-label="Wireframe top-down turntable">
-  <!-- Deck -->
-  <rect x="220" y="160" width="760" height="580" rx="10" class="wf fat"/>
-  <!-- Corner screws -->
-  <g class="wf thin">
-    <circle cx="260" cy="200" r="20"/><line x1="246" y1="200" x2="274" y2="200"/>
-    <circle cx="940" cy="200" r="20"/><line x1="926" y1="200" x2="954" y2="200"/>
-    <circle cx="260" cy="700" r="20"/><line x1="246" y1="700" x2="274" y2="700"/>
-    <circle cx="940" cy="700" r="20"/><line x1="926" y1="700" x2="954" y2="700"/>
-  </g>
-
-  <!-- Platter block -->
-  <g class="spin">
-    <!-- Outer platter rim -->
-    <circle cx="520" cy="450" r="245" class="wf fat"/>
-    <!-- Strobe ring dots (wireframe ticks) -->
-    <g class="wf thin">
-      <!-- 48 ticks -->
-      <g id="ticks">
-        <!-- base tick -->
-        <line x1="520" y1="205" x2="520" y2="215"/>
-      </g>
-      <g>
-        <!-- rotate the base tick around the rim -->
-        <!-- 0..360 step 7.5deg -->
-        <!-- (48 uses) -->
-        <use href="#ticks"/>
-        <use href="#ticks" transform="rotate(7.5 520 450)"/>
-        <use href="#ticks" transform="rotate(15 520 450)"/>
-        <use href="#ticks" transform="rotate(22.5 520 450)"/>
-        <use href="#ticks" transform="rotate(30 520 450)"/>
-        <use href="#ticks" transform="rotate(37.5 520 450)"/>
-        <use href="#ticks" transform="rotate(45 520 450)"/>
-        <use href="#ticks" transform="rotate(52.5 520 450)"/>
-        <use href="#ticks" transform="rotate(60 520 450)"/>
-        <use href="#ticks" transform="rotate(67.5 520 450)"/>
-        <use href="#ticks" transform="rotate(75 520 450)"/>
-        <use href="#ticks" transform="rotate(82.5 520 450)"/>
-        <use href="#ticks" transform="rotate(90 520 450)"/>
-        <use href="#ticks" transform="rotate(97.5 520 450)"/>
-        <use href="#ticks" transform="rotate(105 520 450)"/>
-        <use href="#ticks" transform="rotate(112.5 520 450)"/>
-        <use href="#ticks" transform="rotate(120 520 450)"/>
-        <use href="#ticks" transform="rotate(127.5 520 450)"/>
-        <use href="#ticks" transform="rotate(135 520 450)"/>
-        <use href="#ticks" transform="rotate(142.5 520 450)"/>
-        <use href="#ticks" transform="rotate(150 520 450)"/>
-        <use href="#ticks" transform="rotate(157.5 520 450)"/>
-        <use href="#ticks" transform="rotate(165 520 450)"/>
-        <use href="#ticks" transform="rotate(172.5 520 450)"/>
-        <use href="#ticks" transform="rotate(180 520 450)"/>
-        <use href="#ticks" transform="rotate(187.5 520 450)"/>
-        <use href="#ticks" transform="rotate(195 520 450)"/>
-        <use href="#ticks" transform="rotate(202.5 520 450)"/>
-        <use href="#ticks" transform="rotate(210 520 450)"/>
-        <use href="#ticks" transform="rotate(217.5 520 450)"/>
-        <use href="#ticks" transform="rotate(225 520 450)"/>
-        <use href="#ticks" transform="rotate(232.5 520 450)"/>
-        <use href="#ticks" transform="rotate(240 520 450)"/>
-        <use href="#ticks" transform="rotate(247.5 520 450)"/>
-        <use href="#ticks" transform="rotate(255 520 450)"/>
-        <use href="#ticks" transform="rotate(262.5 520 450)"/>
-        <use href="#ticks" transform="rotate(270 520 450)"/>
-        <use href="#ticks" transform="rotate(277.5 520 450)"/>
-        <use href="#ticks" transform="rotate(285 520 450)"/>
-        <use href="#ticks" transform="rotate(292.5 520 450)"/>
-        <use href="#ticks" transform="rotate(300 520 450)"/>
-        <use href="#ticks" transform="rotate(307.5 520 450)"/>
-        <use href="#ticks" transform="rotate(315 520 450)"/>
-        <use href="#ticks" transform="rotate(322.5 520 450)"/>
-        <use href="#ticks" transform="rotate(330 520 450)"/>
-        <use href="#ticks" transform="rotate(337.5 520 450)"/>
-        <use href="#ticks" transform="rotate(345 520 450)"/>
-        <use href="#ticks" transform="rotate(352.5 520 450)"/>
-      </g>
-    </g>
-    <!-- Inner rim -->
-    <circle cx="520" cy="450" r="220" class="wf2"/>
-    <!-- Record face (wire grooves) -->
-    <circle cx="520" cy="450" r="216" class="ghost"/>
-    <circle cx="520" cy="450" r="190" class="ghost dash"/>
-    <circle cx="520" cy="450" r="165" class="ghost dash"/>
-    <circle cx="520" cy="450" r="140" class="ghost dash"/>
-    <circle cx="520" cy="450" r="115" class="ghost dash"/>
-    <!-- Label + spindle -->
-    <circle cx="520" cy="450" r="76" class="wf2"/>
-    <circle cx="520" cy="450" r="6.5" class="wf thin"/>
-    <text x="520" y="450" text-anchor="middle" dy="4" class="label">LABEL</text>
-  </g>
-
-  <!-- Power knob (top-left on deck) -->
-  <g class="wf" transform="translate(260 200)">
-    <circle r="24"/><circle r="12" class="thin"/><circle r="5" class="thin"/>
-  </g>
-
-  <!-- Start/Stop block + LED -->
-  <g transform="translate(250 620)">
-    <rect x="0" y="0" width="140" height="64" rx="6" class="wf"/>
-    <text x="70" y="38" text-anchor="middle" class="label">START / STOP</text>
-    <circle cx="160" cy="-180" r="10" class="wf thin"/>
-    <circle cx="160" cy="-180" r="22" class="ghost"/>
-  </g>
-
-  <!-- Pitch fader -->
-  <g transform="translate(900 420)">
-    <rect x="0" y="0" width="14" height="280" rx="7" class="wf"/>
-    <line x1="22" y1="8" x2="40" y2="8" class="wf thin"/>
-    <line x1="22" y1="140" x2="40" y2="140" class="wf thin"/>
-    <line x1="22" y1="272" x2="40" y2="272" class="wf thin"/>
-    <rect x="-9" y="158" width="30" height="30" rx="4" class="wf2"/>
-  </g>
-
-  <!-- Tonearm base -->
-  <g transform="translate(880 300)">
-    <circle r="80" class="wf"/>
-    <circle r="58" class="wf thin"/>
-    <line x1="-50" y1="-6" x2="50" y2="6" class="wf fat"/>
-    <line x1="-12" y1="-54" x2="12" y2="54" class="wf fat"/>
-    <circle r="22" class="wf2"/>
-    <circle r="8" class="wf thin"/>
-    <rect x="-8" y="-86" width="16" height="28" rx="6" class="wf thin"/>
-    <rect x="-14" y="-58" width="28" height="20" rx="8" class="wf2"/>
-  </g>
-
-  <!-- Tonearm (S) -->
-  <path
-    d="M 892 360
-       C 902 384, 922 402, 928 434
-       C 934 468, 914 498, 902 524
-       C 884 556, 864 586, 818 608
-       C 770 630, 696 622, 654 602"
-    class="wf fat"/>
-
-  <!-- Headshell + stylus -->
-  <g transform="translate(650 630) rotate(-16)">
-    <rect x="-22" y="-12" width="54" height="24" rx="3" class="wf2"/>
-    <circle cx="-8" cy="0" r="3" class="wf thin"/>
-    <circle cx="6" cy="0" r="3" class="wf thin"/>
-    <circle cx="20" cy="0" r="3" class="wf thin"/>
-    <circle cx="34" cy="0" r="3" class="wf thin"/>
-    <polygon points="48,-2 62,0 48,2" class="wf"/>
-  </g>
-
-  <!-- Minimal labels (optional) -->
-  <text x="760" y="760" class="label">Technics — Wireframe</text>
-</svg>
-</div>
-</body>
-</html>
-
-
-  </svg>
-</div>
-  <img src="assets/billboard-clean.jpg" alt="OZZI MUSIC turntable" />
+  <img src="assets/billboard-clean.jpg" alt="Billboard">
 </body>
 </html>
